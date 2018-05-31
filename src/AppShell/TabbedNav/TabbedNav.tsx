@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { NavState, NavArea } from '../../navigation';
+import "./TabbedNav.scss";
 import Tab from "./Tab";
 
 export default class TabbedNav extends React.PureComponent<TabbedNavProps, {}> {
@@ -11,7 +12,7 @@ export default class TabbedNav extends React.PureComponent<TabbedNavProps, {}> {
             </div>
         );
     }
-}
+} 
 
 export interface TabbedNavProps {
     nav: NavState,

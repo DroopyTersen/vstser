@@ -4,7 +4,7 @@ import "../hub/reactions";
 import "./App.scss";
 import Router from "../navigation/Router";
 import TabbedNav from "./TabbedNav/TabbedNav";
-import routes from "../screens/routes";
+import routes from "../views/routes";
 import { NavRoute, getRoute } from '../navigation';
 
 export default class App extends React.Component {
@@ -13,7 +13,7 @@ export default class App extends React.Component {
         hub.trigger("app:init");
     }
     renderView = (ViewComponent, route:NavRoute) => {
-        route.params = route.params || {};
+        route.params = route.params || {}; 
         return <ViewComponent {...hub.state} {...route.params} />
     }
     render() {
