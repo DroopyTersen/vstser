@@ -1,19 +1,13 @@
 import authConfig from "./authConfig";
 import { addSeconds, parse } from "date-fns"
+import request from "./graphRequest";
 import * as qs from "querystring";
-import { Client as GraphClient } from "@microsoft/microsoft-graph-client"
 
 export const verifyToken = async function(token) {
     console.log(token);
     try {
-        let graph = GraphClient.init({
-            authProvider: (done) => {
-                done(null, token.access_token)
-            }
-        })
-    
-        let profile = await graph.api("/me").get()
-        console.log("PROFILE", profile);
+        let profile = await request("https://graph.microsoft.com/v1.0/me", token.access_token)
+        console.log("CURRENT USER:", profile);
         return profile ? true : false;
     
     } catch (err) {
@@ -27,7 +21,7 @@ export var ensureLogin = async function() {
     var qsToken = getTokenFromUrl();
 
     if (qsToken) {
-        // window.location.hash = "";
+
         let isValidToken = await verifyToken(qsToken);
         if (!isValidToken) throw new Error("Something fishy is happening. Invalid Token in QueryString!!!");
         
