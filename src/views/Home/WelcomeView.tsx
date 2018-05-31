@@ -7,7 +7,7 @@ export default class WelcomeView extends React.PureComponent<WelcomeViewProps, {
             <View
                 title="Home"
                 subtitle="welcome to the app!"
-                key="welcome"
+                id="welcome"
             >
             </View>
         );

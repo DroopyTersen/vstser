@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { NavRoute } from '.';
+import posed, { PoseGroup } from 'react-pose';
 
 export function RouteNotFoundView() {
     return (
@@ -7,6 +8,10 @@ export function RouteNotFoundView() {
     )
 };
 
+const AnimatedItem = posed.div({
+    enter: { opacity: 1, scale:1, width:"100%", transition: { duration: 150 } },
+    exit: { opacity: 0, scale: 1.2, width:"100%" }
+  })
 export default class Router extends React.Component<RouterProps, {}> {
 
     render() {
@@ -14,7 +19,16 @@ export default class Router extends React.Component<RouterProps, {}> {
         let view = (routes[route.area] && routes[route.area][route.view])
             ? routes[route.area][route.view]
             : RouteNotFoundView
-        return this.props.render(view, route)
+        
+        return (
+            <PoseGroup>
+                {[
+                    <AnimatedItem key={route.area + route.view}>
+                        {this.props.render(view, route)}
+                    </AnimatedItem>
+                ]}
+             </PoseGroup>
+        );
     }
 }
 
