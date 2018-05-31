@@ -9,8 +9,8 @@ export function RouteNotFoundView() {
 };
 
 const AnimatedItem = posed.div({
-    enter: { opacity: 1, scale:1, width:"100%", transition: { duration: 150 } },
-    exit: { opacity: 0, scale: 1.2, width:"100%" }
+    enter: { opacity: 1, x:"0%", width:"100%", transition: { duration: 125 } },
+    exit: { opacity: 0, x:"-100%", width:"100%" }
   })
 export default class Router extends React.Component<RouterProps, {}> {
 
