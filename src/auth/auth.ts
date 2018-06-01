@@ -3,6 +3,8 @@ import { addSeconds, parse } from "date-fns"
 import request from "./graphRequest";
 import * as qs from "querystring";
 
+
+
 export const verifyToken = async function(token) {
     console.log(token);
     try {
@@ -26,7 +28,6 @@ export var ensureLogin = async function() {
         if (!isValidToken) throw new Error("Something fishy is happening. Invalid Token in QueryString!!!");
         
         cacheToken(qsToken);
-        alert("GOT TOKEN");
         return qsToken
     }
     var cachedToken = getTokenFromCache();
