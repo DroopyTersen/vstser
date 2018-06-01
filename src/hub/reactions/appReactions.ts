@@ -1,7 +1,13 @@
 import hub from "../../hub";
+import { fetchProjects } from "../../data/api";
 
 let onInit = async function() {
     hideSplash();
+    let projects = await fetchProjects();
+    if (projects) {
+        hub.state.set({ projects });
+        hub.cacheState();
+    }
 };
 
 let hideSplash = function() {

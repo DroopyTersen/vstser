@@ -10,7 +10,9 @@ export default class View extends React.PureComponent<ViewProps, {}> {
                     <h1 className='title'>{title}</h1>
                     { subtitle && <div className='subtitle'>{subtitle}</div> }
                 </div>
-                {this.props.children}
+                <div>
+                    {this.props.children}
+                </div>
             </div> 
         );
     }
