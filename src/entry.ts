@@ -2,7 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import App from "./AppShell/App";
 import hub from "./hub";
-import { ensureLogin } from "./auth/auth";
+import { ensureLogin } from "./auth/azureAD/azureADAuth";
 ensureLogin()
     .then(auth => {
         if (auth) {
