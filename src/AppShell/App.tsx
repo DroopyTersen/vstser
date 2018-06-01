@@ -13,7 +13,7 @@ export default class App extends React.Component {
         hub.trigger("app:init");
     }
     render() {
-        return (
+        return ( 
     
             <div className="app">
                 <Location>

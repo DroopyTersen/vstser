@@ -6,14 +6,11 @@ html, body, #root, .app {
     margin: 0;
     height: 100%;
     font-family: $primaryFont;
-    letter-spacing: 1px;
     color: #444;
-    background: radial-gradient(#ffffff, #f4f4f4);
 }
 
 h1,h2,h3,h4 {
     font-family: $titleFont;
-    letter-spacing: 1px;
     margin: 10px 0;
     font-weight: 400;
 }
@@ -33,31 +30,4 @@ h1,h2,h3,h4 {
     position: relative;
     display: flex;
     justify-content: center;
-}
-
-
-@keyframes spin {
-    from {transform:rotate(0deg);}
-    to {transform:rotate(360deg);}
-}
-.fa-spinner {
-    animation: spin 1.5s linear infinite;
-}
-
-.button {
-    border: 1px solid #ccc;
-    padding: 5px 10px;
-    border-radius: 4px;
-    // text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    &:hover {
-        background: #f7f7f7;
-    }
-    i {
-        margin-right: 3px;
-        color: #666;            
-    }
 }
