@@ -9,5 +9,5 @@ export default class AboutView extends React.PureComponent<AboutViewProps, {}> {
 }
 
 export interface AboutViewProps {
-    //props
+    path:string
 }

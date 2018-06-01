@@ -1,7 +1,7 @@
 import * as React from 'react';
 import View from "../View/View";
 
-export default class WelcomeView extends React.PureComponent<WelcomeViewProps, {}> {
+export default class HomeView extends React.PureComponent<HomeViewProps, {}> {
     render() {
         return (
             <View
@@ -14,6 +14,6 @@ export default class WelcomeView extends React.PureComponent<WelcomeViewProps, {
     }
 }
 
-export interface WelcomeViewProps {
-    //props
+export interface HomeViewProps {
+    path: string
 }

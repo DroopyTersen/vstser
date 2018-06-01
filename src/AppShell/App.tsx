@@ -2,30 +2,29 @@ import * as React from 'react';
 import hub from "../hub";
 import "../hub/reactions";
 import "./App.scss";
-import Router from "../navigation/Router";
 import TabbedNav from "./TabbedNav/TabbedNav";
-import routes from "../views/routes";
-import { NavRoute, getRoute } from '../navigation';
+import Tab from './TabbedNav/Tab';
+import { Router } from "@reach/router";
+import HomeView from "../views/Home/HomeView";
+import AboutView from '../views/About/AboutView';
 
 export default class App extends React.Component {
     componentDidMount() {
         hub.on("update", () => this.forceUpdate());
         hub.trigger("app:init");
     }
-    renderView = (ViewComponent, route:NavRoute) => {
-        route.params = route.params || {}; 
-        return <ViewComponent {...hub.state} {...route.params} />
-    }
     render() {
         return (
             <div className="app">
-                <TabbedNav nav={hub.state.nav} />
+                <TabbedNav>
+                    <Tab path="/" icon="fas fa-home" />
+                    <Tab path="/about" icon="far fa-question-circle" />
+                </TabbedNav>
                 <div className='content'>
-                    <Router 
-                        render={this.renderView} 
-                        route={getRoute(hub.state.nav)} 
-                        routes={routes}
-                    />
+                    <Router>
+                        <HomeView path="/" />
+                        <AboutView path="/about" />
+                    </Router>
                 </div>
             </div>
         );

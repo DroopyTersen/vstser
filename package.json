@@ -4,8 +4,8 @@
   "description": "Wedding website, with text-a-pick and ispy apps",
   "main": "index.html",
   "scripts": {
-    "build": "parcel build index.html && node tasks/build.js",
-    "start": "parcel index.html --open"
+    "build": "parcel build index.html",
+    "start": "parcel index.html"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
     "typescript": "^2.8.3"
   },
   "dependencies": {
+    "@reach/router": "^1.0.2",
     "@types/node": "^9.6.6",
     "@types/react": "^16.3.14",
     "@types/react-dom": "^16.0.5",
