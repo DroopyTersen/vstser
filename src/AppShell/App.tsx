@@ -8,6 +8,7 @@ import { Router, Location } from "@reach/router";
 import HomeView from "../views/Home/HomeView";
 import AboutView from '../views/About/AboutView';
 import MovieDetails from "../views/Movies/MovieDetails";
+import MoviesView from '../views/Movies/MoviesView';
 export default class App extends React.Component {
     componentDidMount() {
         hub.on("update", () => this.forceUpdate());
@@ -22,6 +23,7 @@ export default class App extends React.Component {
                         <TabbedNav>
                             <Tab path="/" icon="fas fa-home" activePath={location.pathname} />
                             <Tab path="/about" icon="far fa-question-circle" activePath={location.pathname}/>
+                            <Tab path="/movies" icon="fas fa-film" activePath={location.pathname}/>
                         </TabbedNav>
                     )}
                 </Location>
@@ -29,6 +31,7 @@ export default class App extends React.Component {
                     <Router>
                         <HomeView path="/" default />
                         <AboutView path="/about" />
+                        <MoviesView path="/movies" />
                         <MovieDetails path="/movies/:id" />
                     </Router>
                 </div>

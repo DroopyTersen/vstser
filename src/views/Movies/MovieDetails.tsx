@@ -1,5 +1,6 @@
 import * as React from 'react';
 import View, { RouterView } from "../View/View";
+import { Link } from "@reach/router";
 
 export default class MovieDetails extends React.PureComponent<MovieDetailsProps, {}> {
     render() {
@@ -9,6 +10,7 @@ export default class MovieDetails extends React.PureComponent<MovieDetailsProps,
                 subtitle="Movie Details"
                 id="movie-details"
             >
+                <Link to="..">Back</Link>
             </View>
         );
     }
