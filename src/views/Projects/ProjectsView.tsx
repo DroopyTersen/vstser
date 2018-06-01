@@ -11,7 +11,6 @@ export default class ProjectsView extends React.PureComponent<any, {}> {
         filterText: this.props.search
     }
     onFilter = (filterText) => {
-        console.log("ON FILTER", filterText);
         if (this.state.filterText !== filterText) {
             this.setState({ filterText });
         }

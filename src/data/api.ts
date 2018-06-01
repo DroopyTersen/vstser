@@ -19,9 +19,9 @@ export const searchProjects = function(projects:VSTSProject[], searchText = "") 
     let results = [ ...projects ];
     if (searchText) {
         let rankedResults = projects.reduce((results, project) => {
-            if (project.name.toLowerCase().startsWith(searchText)) {
+            if (project.name.toLowerCase().startsWith(searchText.toLowerCase())) {
                 results.firstClass.push(project);
-            } else if (project.name.toLowerCase().indexOf(searchText) > -1) {
+            } else if (project.name.toLowerCase().indexOf(searchText.toLowerCase()) > -1) {
                 results.secondClass.push(project);
             }
             return results;
