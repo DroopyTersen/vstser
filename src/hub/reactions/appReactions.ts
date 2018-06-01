@@ -1,9 +1,6 @@
 import hub from "../../hub";
-import { NavRoute, parseRoute, updateUrl } from "../../navigation";
-import { _updateRoute } from "./navReactions";
 
 let onInit = async function() {
-    _updateRoute(parseRoute())
     hideSplash();
 };
 
