@@ -1,19 +1,16 @@
 # Droopy Static Site
 
-- Typescript
-- React.js
-- Parcel Bundler
+- Language:Typescript
+- UI Framework: React.js
 - State Management: hub-flow
-- Routing: vanilla.js
+- Routing: Reach Router
+- Authentication: Azure AD
+- Bundler: Parcel
 
-
-Tabbed Navigation
-Immutable Application State
 
 Todo:
 - Try refactor w/ Context Api
 - Animated Screen Transitions
-- Azure AD Sign on
 - PWA
  - App Manifest
  - Service Worker (for Prod)
