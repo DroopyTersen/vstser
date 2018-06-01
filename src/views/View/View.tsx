@@ -1,5 +1,5 @@
 import * as React from 'react';
-import "./view.scss";
+import "./View.scss";
 
 export default class View extends React.PureComponent<ViewProps, {}> {
     render() {
@@ -20,4 +20,10 @@ export interface ViewProps {
     title: string,
     id: string,
     subtitle?:string,
+    // path:string,
+}
+
+export interface RouterView {
+    path:string,
+    default?:boolean
 }

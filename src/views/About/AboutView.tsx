@@ -1,5 +1,5 @@
 import * as React from 'react';
-import View from "../View/View"
+import View, { RouterView } from "../View/View"
 export default class AboutView extends React.PureComponent<AboutViewProps, {}> {
     render() {
         return (
@@ -8,6 +8,5 @@ export default class AboutView extends React.PureComponent<AboutViewProps, {}> {
     }
 }
 
-export interface AboutViewProps {
-    //props
+export interface AboutViewProps extends RouterView {
 }

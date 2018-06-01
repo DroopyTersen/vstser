@@ -1,23 +1,27 @@
 import * as React from 'react';
-import { NavArea } from '../../navigation';
-import { getClassName } from '../../utils';
-import hub from "../../hub";
+import { Link } from "@reach/router";
+
 export default class Tab extends React.PureComponent<TabProps, {}> {
-    onClick = (e) => {
-        hub.trigger("nav:changeArea", this.props.area.key);
-    }
     render() {
-        let { area, activeArea } = this.props;
-        let className = getClassName(["tab", area.key === activeArea ? "selected" : ""]);
+        let { path, activePath, icon } = this.props;
+        let className = [
+                "tab", 
+                (activePath || "").toLowerCase() === (path.toLowerCase()) 
+                    ? "selected" 
+                    : ""
+                ].filter(c => c).join(" ");
         return (
-            <div className={className} onClick={this.onClick}>
-                <i className={area.icon}></i>
-            </div>
+            <Link to={path}>
+                <div className={className}>
+                    <i className={icon}></i>
+                </div>
+            </Link>
         );
     }
 }
 
 export interface TabProps {
-    area: NavArea,
-    activeArea: string,
+    path: string,
+    activePath?: string,
+    icon: string
 }
