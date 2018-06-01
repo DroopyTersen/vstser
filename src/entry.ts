@@ -4,8 +4,9 @@ import App from "./AppShell/App";
 import hub from "./hub";
 import { ensureLogin } from "./auth/auth";
 ensureLogin()
-    .then(token => {
-        if (token) {
+    .then(auth => {
+        if (auth) {
+            console.log("CURRENT USER", auth.profile);
             (<any>window).hub = hub;
             ReactDOM.render(React.createElement(App), document.getElementById("root"));
         }

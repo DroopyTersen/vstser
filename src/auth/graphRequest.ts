@@ -18,3 +18,16 @@ export default function(url, token, options?) {
         })
         .catch(error => console.error("Error: ", error))
 }
+
+export interface MSGraphProfile {
+    displayName: string,
+    givenName: string,
+    surName:string,
+    id: string,
+    jobTitle: string,
+    mail: string,
+    userPrincipalName:string,
+    officeLocation:string,
+    mobilePhone: string,
+    businessPhones: string[],
+}
