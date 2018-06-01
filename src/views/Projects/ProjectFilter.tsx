@@ -18,7 +18,6 @@ export default class ProjectFilter extends React.PureComponent<ProjectFilterProp
                 <input 
                     value={this.props.searchText || ""}
                     onInput={this.onInput}
-                    placeholder="Filter Projects..." 
                     ref={el => this.input = el} />
             </div>
         );

@@ -18,7 +18,6 @@ const getLinks = function(project) {
 export default class ProjectItem extends React.PureComponent<ProjectItemProps, {}> {
     render() {
         let links = getLinks(this.props.project);
-        console.log(this.props.project);
         return (
             <div className='item' key={this.props.project.id}>
                 <div className='title'>{this.props.project.name}</div>
