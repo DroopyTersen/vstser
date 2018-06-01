@@ -22,3 +22,8 @@ export interface ViewProps {
     subtitle?:string,
     // path:string,
 }
+
+export interface RouterView {
+    path:string,
+    default?:boolean
+}

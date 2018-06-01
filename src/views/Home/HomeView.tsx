@@ -1,5 +1,5 @@
 import * as React from 'react';
-import View from "../View/View";
+import View, { RouterView } from "../View/View";
 
 export default class HomeView extends React.PureComponent<HomeViewProps, {}> {
     render() {
@@ -14,6 +14,5 @@ export default class HomeView extends React.PureComponent<HomeViewProps, {}> {
     }
 }
 
-export interface HomeViewProps {
-    path: string
+export interface HomeViewProps extends RouterView {
 }

@@ -6,7 +6,7 @@ export default class Tab extends React.PureComponent<TabProps, {}> {
         let { path, activePath, icon } = this.props;
         let className = [
                 "tab", 
-                (activePath || "").toLowerCase().startsWith(path.toLowerCase()) 
+                (activePath || "").toLowerCase() === (path.toLowerCase()) 
                     ? "selected" 
                     : ""
                 ].filter(c => c).join(" ");
