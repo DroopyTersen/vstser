@@ -2,7 +2,7 @@
   "name": "VSTSer",
   "short_name": "VSTSer",
   "theme_color": "#2970a0",
-  "background_color": "#ffffff",
+  "background_color": "#2970a0",
   "display": "standalone",
   "Scope": "/",
   "start_url": "/",
