@@ -17,8 +17,6 @@ export default class ProjectsView extends React.PureComponent<any, {}> {
     }
     render() {
         let filteredProjects = searchProjects(this.props.projects, this.state.filterText);
-        console.log(filteredProjects);
-
         return (
             <View
                 title="VSTS'er"

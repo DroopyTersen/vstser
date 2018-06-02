@@ -8,6 +8,8 @@ import { Router, Location } from "@reach/router";
  
 import ProjectsView from '../views/Projects/ProjectsView';
 import SettingsView from '../views/Settings/SettingsView';
+import { faHome, faWrench } from '@fortawesome/fontawesome-free-solid'
+
 export default class App extends React.Component {
     componentDidMount() {
         hub.on("update", () => this.forceUpdate());
@@ -20,8 +22,8 @@ export default class App extends React.Component {
                 <Location>
                     {({location}) => (
                         <TabbedNav>
-                            <Tab path="/" icon="fas fa-home" activePath={location.pathname} />
-                            <Tab path="/settings" icon="fas fa-wrench" activePath={location.pathname} />
+                            <Tab path="/" icon={faHome} activePath={location.pathname} />
+                            <Tab path="/settings" icon={faWrench} activePath={location.pathname} />
                         </TabbedNav>
                     )}
                 </Location>

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link } from "@reach/router";
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
 export default class Tab extends React.PureComponent<TabProps, {}> {
     isActiveTab = () => {
@@ -18,7 +19,7 @@ export default class Tab extends React.PureComponent<TabProps, {}> {
         return (
             <Link to={path}>
                 <div className={className}>
-                    <i className={icon}></i>
+                    <FontAwesomeIcon icon={icon} />
                 </div>
             </Link>
         );
@@ -28,5 +29,5 @@ export default class Tab extends React.PureComponent<TabProps, {}> {
 export interface TabProps {
     path: string,
     activePath?: string,
-    icon: string
+    icon: any
 }
