@@ -1,7 +1,6 @@
 import request from "./vstsRequest";
 import { VSTSProject } from "./interfaces";
 
-
 export const fetchProjects = async function() : Promise<VSTSProject[]> {
     let resp = await request("/projects?$top=10000");
     if (resp && resp.value) {
@@ -12,7 +11,7 @@ export const fetchProjects = async function() : Promise<VSTSProject[]> {
                 return a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1;
             })
     }
-    throw new Error("Invalide Response: fetchProjects");
+    console.log("Invalid Response: fetchProjects");
 }
 
 export const searchProjects = function(projects:VSTSProject[], searchText = "") {

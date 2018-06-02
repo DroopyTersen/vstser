@@ -1,10 +1,18 @@
-const TOKEN = "3caqxwtvgvqnwwmhdcor2mnpwpbiskinb3zworry2zz672dibe7q";
-const BASE_URL = "https://skyline.visualstudio.com/_apis"
+// const TOKEN = "3caqxwtvgvqnwwmhdcor2mnpwpbiskinb3zworry2zz672dibe7q";
+// const BASE_URL = "https://skyline.visualstudio.com/_apis"
+import hub from "../hub"
+
 
 export default function(path, options?) {
-    return fetch(BASE_URL + path, {...{
+    let { account, personalToken } = hub.state.settings;
+    if (!account || !personalToken) {
+        hub.trigger("settings:error")
+        return Promise.reject("Invalid Settings");
+    }
+    let url = `https://${account}.visualstudio.com/_apis${path}`;
+    return fetch(url, {...{
         headers: {
-            'authorization': `Basic ${btoa(":" + TOKEN)}`,
+            'authorization': `Basic ${btoa(":" + personalToken)}`,
             "accept": "application/json"
         },
         method: 'GET',
@@ -16,5 +24,5 @@ export default function(path, options?) {
                 console.error("fetch error: " + response.status);
             }
         })
-        .catch(error => console.error("Error: ", error))
+        .catch(error => hub.trigger("settings:error"))
 }

@@ -1,10 +1,15 @@
-import { VSTSProject } from "../data/interfaces";
+import { VSTSProject, Settings } from "../data/interfaces";
 
 export interface ApplicationState {
     projects: VSTSProject[]
+    settings: Settings
 }
 
 let defaultState: ApplicationState = {
-    projects:[]
+    projects:[],
+    settings: {
+        account: "",
+        personalToken: "",
+    }
 }
 export default defaultState;

@@ -21,7 +21,16 @@ h1,h2,h3,h4 {
     justify-content: stretch;
     align-items: center;
 }
-
+.button {
+    // border: 1px solid $accent;
+    padding: 15px;
+    color: $accent;
+    background: #fff;
+    // cursor:pointer;
+    // &:hover {
+    //     background: #f7f7f7;
+    // }
+}
 .content {
     padding: 0;
     flex: 10 1 100%;
@@ -30,4 +39,14 @@ h1,h2,h3,h4 {
     position: relative;
     display: flex;
     justify-content: center;
+
+    &>div {
+        width: 100%;
+    }
+}
+
+input {
+    width: 300px;
+    padding: 5px;
+    font-size: 1.3em;
 }

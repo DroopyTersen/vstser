@@ -13,6 +13,5 @@ const htmlExtras = `<link rel="manifest" href="/manifest.json">
 fse.copySync("src/manifest.json", "dist/manifest.json");
 
 let html = fs.readFileSync("dist/index.html", "utf8");
-console.log(html);
 html = html.replace("<title>", htmlExtras);
 fs.writeFileSync("dist/index.html", html, "utf8");

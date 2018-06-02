@@ -1,1 +1,2 @@
 import "./appReactions";
+import "./settingsReactions";

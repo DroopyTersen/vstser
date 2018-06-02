@@ -1,0 +1,55 @@
+@import "../../AppShell/variables.scss";
+.view-settings {
+    
+    .form-control {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        width: 300px;
+        margin-top: 30px;
+    }
+    .account-picker {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        .form-control {
+            margin-top: 10px;
+        }
+        .url-preview {
+            color: #888;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+    }
+    img {
+        max-width: 100%;
+        border: 1px solid #aaa;
+        margin-bottom: 20px;
+    }
+    .personal-token-helper {
+        padding: 20px;
+        border: 1px solid #aaa;
+        margin: 40px 10px;
+        text-align: center;
+        max-width: 650px;
+        p {
+            color: #888;
+            font-size: .85em;
+            margin: 20px 0 50px;
+        }
+        h3 {
+            color:$accent;
+        }
+        .img-caption {
+            text-align: left;
+            font-size: 13px;
+            font-style: italic;
+            color: #999;
+            font-family: 'helvetica'
+        }
+        .button {
+            margin: 10px 0 30px;
+            min-width: 150px;
+        }
+    }
+}
