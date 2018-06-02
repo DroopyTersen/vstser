@@ -8,7 +8,8 @@ import { Router, Location } from "@reach/router";
  
 import ProjectsView from '../views/Projects/ProjectsView';
 import SettingsView from '../views/Settings/SettingsView';
-import { faHome, faWrench } from '@fortawesome/fontawesome-free-solid'
+import * as faHome from "@fortawesome/fontawesome-free-solid/faHome"
+import * as faWrench from "@fortawesome/fontawesome-free-solid/faWrench"
 
 export default class App extends React.Component {
     componentDidMount() {
