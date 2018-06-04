@@ -16,20 +16,15 @@ h1,h2,h3,h4 {
 }
 
 .app {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: stretch;
-    align-items: center;
+    // display: flex;
+    // flex-direction: column-reverse;
+    // justify-content: stretch;
+    // align-items: center;
 }
 .button {
-    // border: 1px solid $accent;
     padding: 15px;
     color: $accent;
     background: #fff;
-    // cursor:pointer;
-    // &:hover {
-    //     background: #f7f7f7;
-    // }
 }
 .content {
     padding: 0;
@@ -44,9 +39,25 @@ h1,h2,h3,h4 {
         width: 100%;
     }
 }
-
+.truncate {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 input {
-    width: 300px;
     padding: 5px;
     font-size: 1.3em;
+    outline: none;
+    border: none;
+    border: 1px solid #888;
+    max-width: 90%;
+    &:focus {
+        border-color: lighten($accent, 10%);
+    }
+    &::placeholder, &:-ms-input-placeholder {
+        color: #ccc;
+        letter-spacing: 1px;
+        font-weight: 200;
+    }
 }
