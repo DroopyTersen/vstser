@@ -1,8 +1,8 @@
 {
   "name": "VSTSer",
   "short_name": "VSTSer",
-  "theme_color": "#2970a0",
-  "background_color": "#2970a0",
+  "theme_color": "#0078DB",
+  "background_color": "#ffffff",
   "display": "standalone",
   "Scope": "/",
   "start_url": "/",
