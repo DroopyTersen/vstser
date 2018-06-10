@@ -11,14 +11,14 @@ self.addEventListener("fetch", function(event) {
         event.respondWith(fetch(event.request));
     } else {
         event.respondWith( 
-            getFromCache(event.request)
-                .catch(function() {
-                    console.log("Fetch and set cache")
-                    return fetchAndSetCache(event.request);
-                })
+            getFromCache(event.request).then(cachedResponse => {
+                // Either way, invoke a fetch and replace cache
+                let fetchReq = fetchAndSetCache(event.request);
+                return cachedResponse || fetchReq;
+            })
         );
     }
-})
+}) 
 
 function fetchAndSetCache(request) {
     return caches.open(CACHE_KEY).then(function (cache) {
@@ -30,10 +30,12 @@ function fetchAndSetCache(request) {
 }
 
 function getFromCache(request) {
-    return caches.match(request)
-        .then(function(cachedValue) {
-            return cachedValue || Promise.reject('no-cached-value');
-        })
+    return caches.open(CACHE_KEY).then(function() {
+        return cache.match(request)
+            .then(function(cachedValue) {
+                return cachedValue || null;
+            })
+    })
 } 
 
 function precache() {
