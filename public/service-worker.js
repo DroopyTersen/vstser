@@ -39,13 +39,14 @@ function getFromCache(request) {
 function precache() {
     return caches.open(CACHE_KEY).then(function (cache) {
         return cache.addAll([
-            './index.html',
-            './images/icons/icon-144x144.png',
-            './main.js',
-            './manifest.json',
-            '/images/personaltoken1.png',
-            '/images/personaltoken2.png',
-            '/images/personaltoken3.png'
+            '/',
+            'index.html',
+            'images/icons/icon-144x144.png',
+            'main.js',
+            'manifest.json',
+            'images/personaltoken1.png',
+            'images/personaltoken2.png',
+            'images/personaltoken3.png'
         ]);
     });
 }
