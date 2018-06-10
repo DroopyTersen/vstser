@@ -1,7 +1,7 @@
 {
-  "name": "mohanna",
+  "name": "vstser",
   "version": "1.0.0",
-  "description": "Wedding website, with text-a-pick and ispy apps",
+  "description": "PWA for browsing VSTS Projects",
   "main": "index.html",
   "scripts": {
     "prebuild": "npm run clean",
