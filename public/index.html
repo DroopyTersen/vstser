@@ -7,7 +7,7 @@
     <link rel="icon" href="/images/icons/icon-72x72.png">   
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>VSTSer</title>
+    <title>VSTSer</title> 
     <style>
         #splash {
             display: flex;
@@ -54,11 +54,20 @@
 
 <body>
     <div id='splash'>
-        <img src='src/images/icons/icon-144x144.png' />
+        <img src='/images/icons/icon-144x144.png' />
         <div>VSTS'er</div>
     </div>
     <div id='root' class='hidden'></div>
     <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register("service-worker.js")
+            .then(registration => {
+                console.log('Registration succeeded. Scope is ' + registration.scope, registration);
+            })
+            .catch(function(error) {
+                console.log('Registration failed with ' + error);
+            });
+    }
     </script>
     <script src='/main.js'></script>
 </body>
