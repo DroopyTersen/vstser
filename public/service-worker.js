@@ -1,8 +1,13 @@
-const CACHE_KEY = "v1.1";
+const CACHE_KEY = "v1.2";
 
 self.addEventListener("install", function(event) {
+    self.skipWait();
     console.log("Service Worker being installed");
     event.waitUntil(precache());
+})
+
+self.addEventListener("activate", function(event) {
+    event.waitUntil(clearOldCache())
 })
 
 self.addEventListener("fetch", function(event) {
@@ -20,6 +25,19 @@ self.addEventListener("fetch", function(event) {
     }
 }) 
 
+function clearOldCache() {
+    return caches.keys().then(function(cacheNames) {
+        return Promise.all(
+            cacheNames
+                .filter(function(cacheName) {
+                    return cacheName !== CACHE_KEY
+                })
+                .map(function(cacheName) {
+                    return caches.delete(cacheName);
+                })
+        )
+    })
+}
 function fetchAndSetCache(request) {
     return caches.open(CACHE_KEY).then(function (cache) {
         return fetch(request).then(function (response) {
@@ -30,7 +48,7 @@ function fetchAndSetCache(request) {
 }
 
 function getFromCache(request) {
-    return caches.open(CACHE_KEY).then(function() {
+    return caches.open(CACHE_KEY).then(function(cache) {
         return cache.match(request)
             .then(function(cachedValue) {
                 return cachedValue || null;
