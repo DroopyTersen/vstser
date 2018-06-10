@@ -7,7 +7,7 @@ self.addEventListener("install", function(event) {
 
 self.addEventListener("fetch", function(event) {
     // If is an VSTS API call, fetch as normal
-    if (event.request.url.toLowerCase().indexOf(".visualstudio.com/_apis")) {
+    if (event.request.url.toLowerCase().indexOf(".visualstudio.com/_apis") === 0) {
         event.respondWith(fetch(event.request));
     } else {
         event.respondWith( 
