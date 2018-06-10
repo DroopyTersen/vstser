@@ -8,8 +8,8 @@ import { Router, Location } from "@reach/router";
  
 import ProjectsView from '../views/Projects/ProjectsView';
 import SettingsView from '../views/Settings/SettingsView';
-import * as faHome from "@fortawesome/fontawesome-free-solid/faHome"
-import * as faWrench from "@fortawesome/fontawesome-free-solid/faWrench"
+const faHome = require("@fortawesome/fontawesome-free-solid/faHome")
+const faWrench = require("@fortawesome/fontawesome-free-solid/faWrench")
 
 export default class App extends React.Component {
     componentDidMount() {
@@ -30,9 +30,9 @@ export default class App extends React.Component {
                 </Location>
                 <div className='content'>
                     <Router>
-                        <ProjectsView default path="/projects" projects={hub.state.projects}/>
-                        <ProjectsView path="projects/:search" projects={hub.state.projects}/>
-                        <ProjectsView path="/:search" projects={hub.state.projects}/>
+                        <ProjectsView default path="/projects" projects={hub.state.projects} pinnedProjects={hub.state.pinnedProjects} />
+                        <ProjectsView path="projects/:search" projects={hub.state.projects} pinnedProjects={hub.state.pinnedProjects} />
+                        <ProjectsView path="/:search" projects={hub.state.projects} pinnedProjects={hub.state.pinnedProjects} />
                         <SettingsView path="/settings" settings={hub.state.settings} />
                     </Router>
                 </div>

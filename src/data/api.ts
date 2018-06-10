@@ -14,7 +14,7 @@ export const fetchProjects = async function() : Promise<VSTSProject[]> {
     console.log("Invalid Response: fetchProjects");
 }
 
-export const searchProjects = function(projects:VSTSProject[], searchText = "") {
+export const searchProjects = function(projects:VSTSProject[], searchText = "", pinned:string[]) {
     let results = [ ...projects ];
     if (searchText) {
         let rankedResults = projects.reduce((results, project) => {
@@ -26,6 +26,12 @@ export const searchProjects = function(projects:VSTSProject[], searchText = "") 
             return results;
         }, { firstClass:[], secondClass:[]})
         results = [ ...rankedResults.firstClass, ...rankedResults.secondClass ]
+
     }
+    // bubble pinned to the front
+    results = [ 
+        ...results.filter(p => !!pinned.find(name => name === p.name)),
+        ...results.filter(p => !pinned.find(name => name === p.name))
+    ]
     return results.slice(0,50);
 }

@@ -5,8 +5,9 @@ import { searchProjects } from '../../data/api';
 import ProjectItem from './ProjectItem';
 import "./ProjectsView.scss";
 import ProjectFilter from './ProjectFilter';
+import ProjectItems from './ProjectItems';
 
-export default class ProjectsView extends React.PureComponent<any, {}> {
+export default class ProjectsView extends React.PureComponent<ProjectsViewProps, {}> {
     state = {
         filterText: this.props.search
     }
@@ -16,7 +17,8 @@ export default class ProjectsView extends React.PureComponent<any, {}> {
         }
     }
     render() {
-        let filteredProjects = searchProjects(this.props.projects, this.state.filterText);
+        let pinned = this.props.pinnedProjects || [];
+        let filteredProjects = searchProjects(this.props.projects, this.state.filterText, pinned);
         return (
             <View
                 title="VSTSer"
@@ -24,9 +26,7 @@ export default class ProjectsView extends React.PureComponent<any, {}> {
                 id="projects"
             >
                 <ProjectFilter searchText={this.state.filterText} onChange={this.onFilter} />
-                <div className='list'>
-                    {filteredProjects.map(p => <ProjectItem key={p.id} project={p} />)}
-                </div>
+                <ProjectItems projects={filteredProjects} pinned={pinned} />
             </View>
         );
     }
@@ -34,5 +34,6 @@ export default class ProjectsView extends React.PureComponent<any, {}> {
 
 export interface ProjectsViewProps extends RouterView {
     projects: VSTSProject[],
+    pinnedProjects: string[],
     search?:string,
 }
