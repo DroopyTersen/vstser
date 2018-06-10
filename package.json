@@ -5,11 +5,10 @@
   "main": "index.html",
   "scripts": {
     "prebuild": "npm run clean",
-    "build": "parcel build index.html",
+    "build": "webpack",
     "postbuild": "node tasks/build.js",
     "start": "parcel index.html --open",
-    "webpack": "webpack",
-    "clean": "rimraf .cache && rimraf dist"
+    "clean": "rimraf dist"
   },
   "repository": {
     "type": "git",
