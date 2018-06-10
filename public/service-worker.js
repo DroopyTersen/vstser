@@ -1,24 +1,24 @@
-const CACHE_KEY = "v1";
+const CACHE_KEY = "v1.1";
 
 self.addEventListener("install", function(event) {
     console.log("Service Worker being installed");
     event.waitUntil(precache());
 })
 
-// self.addEventListener("fetch", function(event) {
-//     // If is an VSTS API call, fetch as normal
-//     if (event.request.url.toLowerCase().indexOf(".visualstudio.com/_apis") === 0) {
-//         event.respondWith(fetch(event.request));
-//     } else {
-//         event.respondWith( 
-//             getFromCache(event.request)
-//                 .catch(function() {
-//                     console.log("Fetch and set cache")
-//                     return fetchAndSetCache(event.request);
-//                 })
-//         );
-//     }
-// })
+self.addEventListener("fetch", function(event) {
+    // If is an VSTS API call, fetch as normal
+    if (event.request.url.toLowerCase().indexOf(".visualstudio.com/_apis") === 0) {
+        event.respondWith(fetch(event.request));
+    } else {
+        event.respondWith( 
+            getFromCache(event.request)
+                .catch(function() {
+                    console.log("Fetch and set cache")
+                    return fetchAndSetCache(event.request);
+                })
+        );
+    }
+})
 
 function fetchAndSetCache(request) {
     return caches.open(CACHE_KEY).then(function (cache) {
