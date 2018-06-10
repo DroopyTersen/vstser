@@ -1,4 +1,4 @@
-const webpack = require('webpack');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 module.exports = {
     entry: './src/entry.ts',
     devtool: 'source-map',
@@ -8,6 +8,9 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.json', '.ts', '.tsx'],
     },
+    plugins: [
+        // new BundleAnalyzerPlugin()
+    ],
     module: {
         rules: [
             {
