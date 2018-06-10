@@ -1,10 +1,10 @@
+const webpack = require('webpack');
 module.exports = {
     entry: './src/entry.ts',
-    // output: {
-    //     filename: 'app.js',
-    //     path: path.resolve(__dirname, 'dist'),
-    // },
     devtool: 'source-map',
+    devServer: {
+        contentBase: './dist',
+    },
     resolve: {
         extensions: ['.js', '.json', '.ts', '.tsx'],
     },
