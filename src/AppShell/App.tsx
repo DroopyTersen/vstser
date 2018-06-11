@@ -8,6 +8,7 @@ import { Router, Location } from "@reach/router";
  
 import ProjectsView from '../views/Projects/ProjectsView';
 import SettingsView from '../views/Settings/SettingsView';
+import GlobalBar from './GlobalBar/GlobalBar';
 const faHome = require("@fortawesome/fontawesome-free-solid/faHome")
 const faWrench = require("@fortawesome/fontawesome-free-solid/faWrench")
 
@@ -20,6 +21,7 @@ export default class App extends React.Component {
         return ( 
     
             <div className="app">
+                <GlobalBar isOnline={hub.state.status.isOnline} />
                 <Location>
                     {({location}) => (
                         <TabbedNav>

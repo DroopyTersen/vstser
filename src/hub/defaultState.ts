@@ -3,7 +3,10 @@ import { VSTSProject, Settings } from "../data/interfaces";
 export interface ApplicationState {
     projects: VSTSProject[],
     pinnedProjects: string[],
-    settings: Settings
+    settings: Settings,
+    status: {
+        isOnline: boolean
+    }
 }
 
 let defaultState: ApplicationState = {
@@ -12,6 +15,9 @@ let defaultState: ApplicationState = {
     settings: {
         account: "",
         personalToken: "",
+    },
+    status: {
+        isOnline: true
     }
 }
 export default defaultState;
