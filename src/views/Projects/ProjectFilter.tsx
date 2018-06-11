@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { debounce } from '../../utils/utils';
 
-export default class ProjectFilter extends React.PureComponent<ProjectFilterProps, {}> {
+export default class ProjectFilter extends React.Component<ProjectFilterProps, {}> {
     input: HTMLInputElement;
     state = {
         value: this.props.searchText || ""
@@ -11,7 +11,10 @@ export default class ProjectFilter extends React.PureComponent<ProjectFilterProp
             this.input.focus();
         }
     }
-    debouncedBubble = debounce(this.props.onChange, 200) as any
+    debouncedBubble = debounce((val) => {
+        this.props.onChange(val);
+    }, 300) as any
+
     onChange = (e) => {
         if (e && e.currentTarget) {
             this.setState({ value: e.currentTarget.value })
