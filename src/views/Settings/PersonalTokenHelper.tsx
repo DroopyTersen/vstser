@@ -1,7 +1,7 @@
 import * as React from 'react';
 const image1 = "/images/personaltoken1.png";
-const image2 = "/images/personaltoken2.PNG";
-const image3 = "/images/personaltoken3.PNG";
+const image2 = "/images/personaltoken2.png";
+const image3 = "/images/personaltoken3.png";
 
 const getPersonalAccessTokenUrl = function(account) {
     account = account || "<YOUR_ACCOUNT>";
