@@ -33,5 +33,5 @@ export const searchProjects = function(projects:VSTSProject[], searchText = "", 
         ...results.filter(p => !!pinned.find(name => name === p.name)),
         ...results.filter(p => !pinned.find(name => name === p.name))
     ]
-    return results.slice(0,50);
+    return results.slice(0,30);
 }
