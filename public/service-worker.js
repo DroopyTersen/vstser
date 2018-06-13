@@ -17,8 +17,9 @@ self.addEventListener("fetch", function(event) {
     } else {
         event.respondWith( 
             getFromCache(event.request).then(cachedResponse => {
-                // Either way, invoke a fetch and replace cache
+                // Either way, invoke a fetch and replace cache, but don't 'await'
                 let fetchReq = fetchAndSetCache(event.request);
+                // If a cached value use that, otherwise return the Fetch Promise
                 return cachedResponse || fetchReq;
             })
         );

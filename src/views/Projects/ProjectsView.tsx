@@ -22,7 +22,7 @@ export default class ProjectsView extends React.PureComponent<ProjectsViewProps,
         return (
             <View
                 title="VSTSer"
-                subtitle="Because the Project Search in VSTS kinda sucks..."
+                subtitle="Because the Project Search in VSTS isn't great..."
                 id="projects"
             >
                 <ProjectFilter searchText={this.state.filterText} onChange={this.onFilter} />
