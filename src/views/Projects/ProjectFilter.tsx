@@ -13,7 +13,7 @@ export default class ProjectFilter extends React.Component<ProjectFilterProps, {
     }
     debouncedBubble = debounce((val) => {
         this.props.onChange(val);
-    }, 300) as any
+    }, 100) as any
 
     onChange = (e) => {
         if (e && e.currentTarget) {
